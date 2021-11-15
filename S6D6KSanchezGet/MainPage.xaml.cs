@@ -43,7 +43,7 @@ namespace S6D6KSanchezGet
                     {
                         data = e.SelectedItem as S6D6KSanchezGet.Ws.Datos;
                         mostrar = true;
-                        //MyListView.SelectedItem = null;
+                        
                     }
                 };
             }
@@ -58,7 +58,7 @@ namespace S6D6KSanchezGet
             if (mostrar == true)
             {
                 await Navigation.PushAsync(new ViewEliminar(data.codigo, data.nombre, data.apellido, data.edad));
-                // await Navigation.PushAsync(new ViewEliminar());
+                
             }
             else { await DisplayAlert("Error", "Seleccionar un registro ", "OK"); }
         }
@@ -74,7 +74,7 @@ namespace S6D6KSanchezGet
             if (mostrar == true)
             {
                 await Navigation.PushAsync(new ViewActualizar(data.codigo, data.nombre, data.apellido, data.edad));
-                //await Navigation.PushAsync(new ViewActualizar());
+         
             }
             else
             {

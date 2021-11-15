@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -17,8 +17,9 @@ namespace S6D6KSanchezGet
         {
             InitializeComponent();
         }
-
-        private async void btnGuardar_Clicked(object sender, EventArgs e)
+        
+      
+        private async void btnRegistro_Clicked(object sender, EventArgs e)
         {
             try
             {
@@ -34,26 +35,26 @@ namespace S6D6KSanchezGet
                 parametos.Add("edad", txtEdad.Text);
 
                 cliente.UploadValues("http://192.168.1.3/moviles/post.php", "POST", parametos);
-                await DisplayAlert("Mensaje", "Ingreso correcto", "ok");
+                await DisplayAlert("Mensaje:", "Ingreso correcto", "ok");
                 regresar();
 
 
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Mensaje", ex.Message, "ok");
+                 await DisplayAlert("Mensaje", "ERROR: " + ex.Message, "ok");
             }
+        }
 
+        private async void btnRegresarPrincipal_Clicked(object sender, EventArgs e)
+        {
+             await Navigation.PushAsync(new MainPage());
         }
 
         public async void regresar()
         {
             await Navigation.PushAsync(new MainPage());
         }
-        private async void btnRegresar_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new MainPage());
 
-        }
     }
 }

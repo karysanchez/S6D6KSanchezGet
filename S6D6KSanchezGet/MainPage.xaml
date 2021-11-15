@@ -4,8 +4,9 @@
              x:Class="S6D6KSanchezGet.MainPage">
 
     <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="15" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="15"/>
+        
+        <Frame BackgroundColor="#215178" Padding="20" CornerRadius="0">
+            <Label Text="CRUD con Web Service" HorizontalTextAlignment="Center" TextColor="White" FontSize="18"/>
         </Frame>
 
         <Label Text="Consumir web service Get" FontSize="20" HorizontalTextAlignment="Center">
@@ -20,10 +21,24 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
-                            <Label x:Name="lblNombre" Text="{Binding nombre}">
-                            </Label>
-                            <Label x:Name="lblApellido" Text="{Binding apellido}">
-                            </Label>
+                           
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label x:Name="lblNombre" Text="{Binding nombre}" Grid.Row="0" Grid.Column="0">
+                                </Label>
+                                <Label x:Name="lblApellido" Text="{Binding apellido}" Grid.Row="0" Grid.Column="1">
+                                </Label>
+                                
+                            </Grid>
+
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
@@ -31,7 +46,7 @@
         </ListView>
 
         <Button x:Name="btnGet" Text="Insertar" Clicked="btnGet_Clicked"/>
-        <Button x:Name="btnActualizar" Text="Actualizar" Clicked="btnActualizar_Clicked" />
+        <Button x:Name="btnPut" Text="Actualizar" Clicked="btnPut_Clicked"/>
         <Button x:Name="btnEliminar" Text="Eliminar" Clicked="btnEliminar_Clicked"/>
 
 

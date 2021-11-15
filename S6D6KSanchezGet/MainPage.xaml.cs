@@ -16,6 +16,10 @@ namespace S6D6KSanchezGet
         private const string Url = "http://192.168.1.3/moviles/post.php";
         private readonly HttpClient client = new HttpClient();
         private ObservableCollection<S6D6KSanchezGet.Ws.Datos> _post;
+
+        S6D6KSanchezGet.Ws.Datos data;
+        Boolean mostrar = false;
+
         public MainPage()
         {
             InitializeComponent();
@@ -31,27 +35,51 @@ namespace S6D6KSanchezGet
                 _post = new ObservableCollection<S6D6KSanchezGet.Ws.Datos>(posts);
 
                 MyListView.ItemsSource = _post;
+
+                //Captura valor seleccionado
+                MyListView.ItemSelected += (sender, e) =>
+                {
+                    if (e.SelectedItem != null)
+                    {
+                        data = e.SelectedItem as S6D6KSanchezGet.Ws.Datos;
+                        mostrar = true;
+                        //MyListView.SelectedItem = null;
+                    }
+                };
             }
             catch (Exception ex)
             {
-                DisplayAlert("Error", "ERROR " + ex.Message, "OK");
+                await DisplayAlert("Error", "ERROR " + ex.Message, "OK");
             }
         }
 
-
-        private void btnActualizar_Clicked(object sender, EventArgs e)
+        private async void btnEliminar_Clicked(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnEliminar_Clicked(object sender, EventArgs e)
-        {
-
+            if (mostrar == true)
+            {
+                await Navigation.PushAsync(new ViewEliminar(data.codigo, data.nombre, data.apellido, data.edad));
+                // await Navigation.PushAsync(new ViewEliminar());
+            }
+            else { await DisplayAlert("Error", "Seleccionar un registro ", "OK"); }
         }
 
         private async void btnGet_Clicked(object sender, EventArgs e)
         {
+
             await Navigation.PushAsync(new ViewInsertar());
+        }
+
+        private async void btnPut_Clicked(object sender, EventArgs e)
+        {
+            if (mostrar == true)
+            {
+                await Navigation.PushAsync(new ViewActualizar(data.codigo, data.nombre, data.apellido, data.edad));
+                //await Navigation.PushAsync(new ViewActualizar());
+            }
+            else
+            {
+                await DisplayAlert("Error", "Seleccionar un registro ", "OK");
+            }
         }
     }
 }

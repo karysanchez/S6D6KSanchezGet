@@ -4,7 +4,7 @@
              x:Class="S6D6KSanchezGet.ViewInsertar" NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Insertar un dato" FontSize="Medium"/>
+            <Label Text="Insertar un dato" FontSize="Medium" HorizontalTextAlignment="Center"/>
             <Entry x:Name="txtCodigo" Placeholder="Ingrese el codigo" Keyboard="Numeric"/>
             <Entry x:Name="txtNombre" Placeholder="Ingrese el nombre"/>
             <Entry x:Name="txtApellido" Placeholder="Ingrese el apellido"/>
@@ -19,8 +19,9 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="btnGuardar" Text="Guardar" Clicked="btnGuardar_Clicked" Grid.Row="0" Grid.Column="0"/>
-                <Button x:Name="btnRegresar" Text="Regresar" Clicked="btnRegresar_Clicked" Grid.Row="0" Grid.Column="1"/>
+                <Button x:Name="btnRegistro" Text="Guardar" Clicked="btnRegistro_Clicked" Grid.Row="0" Grid.Column="0"/>
+                <Button x:Name="btnRegresarPrincipal" Text="Regresar" Clicked="btnRegresarPrincipal_Clicked" Grid.Row="0" Grid.Column="1"/>
+
             </Grid>
         </StackLayout>
     </ContentPage.Content>

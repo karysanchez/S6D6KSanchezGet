@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="S6D6KSanchezGet.ViewEliminar">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Eliminar un dato" FontSize="Medium" HorizontalTextAlignment="Center"/>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Codigo:" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                <Label x:Name="lblCodigo" Grid.Row="0" Grid.Column="1"  />
+
+                <Label Text="Nombre:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold"/>
+                <Label x:Name="lblNombre" Grid.Row="1" Grid.Column="1"  />
+
+                <Label Text="Apellido:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold"/>
+                <Label x:Name="lblApellido" Grid.Row="2" Grid.Column="1"/>
+
+                <Label Text="Edad:" Grid.Row="3" Grid.Column="0" FontAttributes="Bold"/>
+                <Label x:Name="lblEdad" Grid.Row="3" Grid.Column="1" />
+
+            </Grid>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btnEliminar" Text="Eliminar" Clicked="btnEliminar_Clicked" Grid.Row="0" Grid.Column="0"/>
+                <Button x:Name="btnRegresar" Text="Regresar" Clicked="btnRegresar_Clicked" Grid.Row="0" Grid.Column="1"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
